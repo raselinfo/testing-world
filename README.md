@@ -8,3 +8,12 @@ As the name suggests, Test Runner is a tool that is used to run or execute tests
 - Automatically detects testing code
 - Displays results
 - e.g Jest, Karma
+
+## Assertion Library
+
+Assertion libraries are tools to verify that things are correct. This makes it a lot easier to test your code, so you don't have to do thousands of if statements.
+
+- Used to define expected outcomes
+- Checks whether expectations are met
+- Supports all kinds of expectations and modes (sync/ async)
+- e.g., Jest,Chai
