@@ -20,6 +20,8 @@ Assertion libraries are tools to verify that things are correct. This makes it a
 
 ## Vitest
 
+<a href="https://vitest.dev/">Vitest</a> Blazing Fast Unit Test Framework
+
 ```js
 yarn add -D vitest
 
