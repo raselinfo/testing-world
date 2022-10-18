@@ -18,6 +18,10 @@ Assertion libraries are tools to verify that things are correct. This makes it a
 - Supports all kinds of expectations and modes (sync/ async)
 - e.g., Jest,Chai
 
+## Test Pattern
+
+1. AAA- Arrange,Act,Assert
+
 ## Vitest
 
 <a href="https://vitest.dev/">Vitest</a> Blazing Fast Unit Test Framework
