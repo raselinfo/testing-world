@@ -18,6 +18,30 @@ Assertion libraries are tools to verify that things are correct. This makes it a
 - Supports all kinds of expectations and modes (sync/ async)
 - e.g., Jest,Chai
 
+## Test Pattern
+
+The AAA (Arrange-Act-Assert) pattern has become almost a standard across the industry. It suggests that you should divide your test method into three sections: arrange, act and assert. Each one of them only responsible for the part in which they are named after
+
+1. AAA- Arrange,Act,Assert
+   1. A(Arrange) : Define the testing environment and values
+   2. A(Act) : Run the actual code / function that should be tested
+   3. A(Assert) : Evaluate the produced value / result and compare it to the expected value / result
+
+```js
+import { it, expect } from "vitest";
+import { add } from "./math";
+
+it("should summarize all number values in an array", () => {
+  // Arrange
+  const numbers = [1, 2, 3, 4];
+  const expectedResult = numbers.reduce((acc, curr) => acc + curr, 0);
+  // Act
+  const result = add(numbers);
+  // Assert
+  expect(result).toBe(expectedResult);
+});
+```
+
 ## Vitest
 
 <a href="https://vitest.dev/">Vitest</a> Blazing Fast Unit Test Framework
@@ -29,4 +53,16 @@ yarn add -D vitest
 "scripts": {
     "test": "vitest --globals"
   },
+```
+
+**Sample Test**
+
+```js
+import { it, expect } from "vitest";
+import { add } from "./math";
+
+it("should summarize all number values in an array", () => {
+  const result = add([1, 2, 3, 4]);
+  expect(result).toBe(10);
+});
 ```
