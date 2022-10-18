@@ -17,3 +17,14 @@ Assertion libraries are tools to verify that things are correct. This makes it a
 - Checks whether expectations are met
 - Supports all kinds of expectations and modes (sync/ async)
 - e.g., Jest,Chai
+
+## Vitest
+
+```js
+yarn add -D vitest
+
+// package.json
+"scripts": {
+    "test": "vitest --globals"
+  },
+```

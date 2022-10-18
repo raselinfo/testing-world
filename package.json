@@ -1,0 +1,17 @@
+{
+  "scripts": {
+    "test": "vitest --globals"
+  },
+  "name": "testing",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/raselinfo/testing-js.git",
+  "author": "Rasel Hossain <rabinarahman@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": "16.17.1"
+  },
+  "devDependencies": {
+    "vitest": "^0.24.3"
+  }
+}
