@@ -63,72 +63,66 @@ yarn add -D vitest
 import { it, expect, describe } from "vitest";
 import { add } from "./math";
 
-
 describe("add()", () => {
+  it("should summarize all number values in an array", () => {
+    // Arrange
+    const numbers = [1, 2, 3, 4];
+    const expectedResult = numbers.reduce((acc, curr) => acc + curr, 0);
+    // Act
+    const result = add(numbers);
+    // Assert
+    expect(result).toBe(expectedResult);
+  });
 
-    it('should summarize all number values in an array', () => {
-        // Arrange
-        const numbers = [1, 2, 3, 4]
-        const expectedResult = numbers.reduce((acc, curr) => acc + curr, 0)
-        // Act
-        const result = add(numbers)
-        // Assert
-        expect(result).toBe(expectedResult)
-    })
+  it("should yield NaN if a least one invalid number is provide", () => {
+    // Arrange
+    const inputs = ["string", 5, true, undefined, null, NaN];
+    // Act
+    const result = add(inputs);
+    // Assert
+    expect(result).toBeNaN();
+  });
 
-    it("should yield NaN if a least one invalid number is provide", () => {
-        // Arrange
-        const inputs = ['string', 5, true, undefined, null, NaN]
-        // Act
-        const result = add(inputs)
-        // Assert
-        expect(result).toBeNaN()
-    })
+  it("should yield a correct sum if an array of numeric string value provided", () => {
+    // Arrange
+    const numbers = ["1", "2", "3", "4"];
+    const expectedResult = numbers.reduce((acc, cru) => +acc + +cru, 0);
 
-    it("should yield a correct sum if an array of numeric string value provided", () => {
-        // Arrange
-        const numbers = ['1', '2', '3', '4']
-        const expectedResult = numbers.reduce((acc, cru) => +acc + +cru, 0)
+    // Act
+    const result = add(numbers);
 
-        // Act
-        const result = add(numbers)
+    // Assert
+    expect(result).toBe(expectedResult);
+  });
 
-        // Assert
-        expect(result).toBe(expectedResult)
+  it("should yield 0 if an empty array provide", () => {
+    const numbers = [];
+    const expectedResult = 0;
 
-    })
+    const result = add(numbers);
 
-    it("should yield 0 if an empty array provide", () => {
-        const numbers = []
-        const expectedResult = 0
+    expect(result).toBe(expectedResult);
+  });
 
-        const result = add(numbers)
+  it("should yield an error if no input provide", () => {
+    const resultFn = () => {
+      add();
+    };
 
-        expect(result).toBe(expectedResult)
-    })
+    expect(resultFn).toThrow(/No input provided/);
+  });
 
-    it("should yield an error if no input provide", () => {
-        const resultFn = () => {
-            add()
-        }
+  it("should throw an error if provided multiple argument instead of an array", () => {
+    const num1 = 1;
+    const num2 = 2;
 
-        expect(resultFn).toThrow(/No input provided/)
-    })
+    const result = () => {
+      add(num1, num2);
+    };
 
-    it("should throw an error if provided multiple argument instead of an array", () => {
-        const num1 = 1;
-        const num2 = 2;
-
-        const result = () => {
-            add(num1, num2)
-        }
-
-        expect(result).toThrow()
-    })
-
-
-})
-
+    expect(result).toThrow();
+  });
+});
 ```
 
 **Error Check**
@@ -143,26 +137,33 @@ it("should yield an error if no input provide", () => {
 });
 
 it("should throw an error if provided multiple argument instead of an array", () => {
-    const num1 = 1;
-    const num2 = 2;
+  const num1 = 1;
+  const num2 = 2;
 
-    const result = () => {
-        add(num1, num2)
-    }
+  const result = () => {
+    add(num1, num2);
+  };
 
-    expect(result).toThrow()
-})
+  expect(result).toThrow();
+});
 ```
- 
- ## Test Case
- - toBeTypeOf
- - toBeNaN
- - toThrow
+
+## Test Case
+
+- toBeTypeOf
+- toBeNaN
+- toThrow
+- toContain
 
 ## Good Test
+
 1. Test only your code. Don't test third-party code.don't test native nodejs packages.
 2. Make you code split (clean code)
+3. Only test one thing
+   1. One feature
+   2. e.g, Validate input or transform if (not both)
+4. Focus on the essence of a test when arranging
+5. Follow AAA
+6. keep your number of assertions (expects) low
 
 ## Integration Test
-
-
