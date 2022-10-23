@@ -167,3 +167,33 @@ it("should throw an error if provided multiple argument instead of an array", ()
 6. keep your number of assertions (expects) low
 
 ## Integration Test
+```js
+// ✅ This is the function should test
+export function cleanNumbers(numberValues) {
+  const numbers = [];
+  for (const numberInput of numberValues) {
+    validateStringNotEmpty(numberInput);
+    const number = transformToNumber(numberInput);
+    validateNumber(number);
+    numbers.push(number);
+  }
+  return numbers;
+}
+
+// ✅ And this is the test code
+describe('cleanNumbers()', () => {
+  it('should return an array of number values if and array of number value provided', () => {
+    const numberValues = ['1', '2', '3'];
+    const cleanedNumbers = cleanNumbers(numberValues);
+    expect(cleanedNumbers[0]).toBeTypeOf('number');
+  });
+
+  it('should throw an error if an array with at least one empty string is provided', () => {
+    const numberValues = ['', 1];
+    const cleanFn = () => cleanNumbers(numberValues);
+
+    expect(cleanFn).toThrow();
+  });
+});
+```
+
