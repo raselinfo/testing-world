@@ -28,10 +28,10 @@ The AAA (Arrange-Act-Assert) pattern has become almost a standard across the ind
    3. A(Assert) : Evaluate the produced value / result and compare it to the expected value / result
 
 ```js
-import { it, expect } from "vitest";
-import { add } from "./math";
+import { it, expect } from 'vitest';
+import { add } from './math';
 
-it("should summarize all number values in an array", () => {
+it('should summarize all number values in an array', () => {
   // Arrange
   const numbers = [1, 2, 3, 4];
   const expectedResult = numbers.reduce((acc, curr) => acc + curr, 0);
@@ -60,11 +60,11 @@ yarn add -D vitest
 **Sample Test**
 
 ```js
-import { it, expect, describe } from "vitest";
-import { add } from "./math";
+import { it, expect, describe } from 'vitest';
+import { add } from './math';
 
-describe("add()", () => {
-  it("should summarize all number values in an array", () => {
+describe('add()', () => {
+  it('should summarize all number values in an array', () => {
     // Arrange
     const numbers = [1, 2, 3, 4];
     const expectedResult = numbers.reduce((acc, curr) => acc + curr, 0);
@@ -74,18 +74,18 @@ describe("add()", () => {
     expect(result).toBe(expectedResult);
   });
 
-  it("should yield NaN if a least one invalid number is provide", () => {
+  it('should yield NaN if a least one invalid number is provide', () => {
     // Arrange
-    const inputs = ["string", 5, true, undefined, null, NaN];
+    const inputs = ['string', 5, true, undefined, null, NaN];
     // Act
     const result = add(inputs);
     // Assert
     expect(result).toBeNaN();
   });
 
-  it("should yield a correct sum if an array of numeric string value provided", () => {
+  it('should yield a correct sum if an array of numeric string value provided', () => {
     // Arrange
-    const numbers = ["1", "2", "3", "4"];
+    const numbers = ['1', '2', '3', '4'];
     const expectedResult = numbers.reduce((acc, cru) => +acc + +cru, 0);
 
     // Act
@@ -95,7 +95,7 @@ describe("add()", () => {
     expect(result).toBe(expectedResult);
   });
 
-  it("should yield 0 if an empty array provide", () => {
+  it('should yield 0 if an empty array provide', () => {
     const numbers = [];
     const expectedResult = 0;
 
@@ -104,7 +104,7 @@ describe("add()", () => {
     expect(result).toBe(expectedResult);
   });
 
-  it("should yield an error if no input provide", () => {
+  it('should yield an error if no input provide', () => {
     const resultFn = () => {
       add();
     };
@@ -112,7 +112,7 @@ describe("add()", () => {
     expect(resultFn).toThrow(/No input provided/);
   });
 
-  it("should throw an error if provided multiple argument instead of an array", () => {
+  it('should throw an error if provided multiple argument instead of an array', () => {
     const num1 = 1;
     const num2 = 2;
 
@@ -128,7 +128,7 @@ describe("add()", () => {
 **Error Check**
 
 ```js
-it("should yield an error if no input provide", () => {
+it('should yield an error if no input provide', () => {
   const resultFn = () => {
     add();
   };
@@ -136,7 +136,7 @@ it("should yield an error if no input provide", () => {
   expect(resultFn).toThrow();
 });
 
-it("should throw an error if provided multiple argument instead of an array", () => {
+it('should throw an error if provided multiple argument instead of an array', () => {
   const num1 = 1;
   const num2 = 2;
 
@@ -151,6 +151,8 @@ it("should throw an error if provided multiple argument instead of an array", ()
 ## Test Case
 
 - toBeTypeOf
+- toBe() // <exact equality> ✅ 1===1 (true) , {} === {} (false), [] === [] (false)
+- toEqual() // <compare only the value> ✅ 1===1 (true) , {} === {} (true), [] === [] (true)
 - toBeNaN
 - toThrow
 - toContain
@@ -167,6 +169,7 @@ it("should throw an error if provided multiple argument instead of an array", ()
 6. keep your number of assertions (expects) low
 
 ## Integration Test
+
 Integration testing is the phase in software testing in which individual software modules are combined and tested as a group. Integration testing is conducted to evaluate the compliance of a system or component with specified functional requirements. It occurs after unit testing and before system testing.
 
 Integration testing -- also known as integration and testing (I&T) -- is a type of software testing in which the different units, modules or components of a software application are tested as a combined entity. However, these modules may be coded by different programmers.
@@ -176,8 +179,8 @@ This type of testing follows the natural control flow hierarchy, i.e., top to bo
 **What are the 4 types of integration testing?**
 Types of Integration Testing
 Big Bang Method. This method involves integrating all the modules and components and testing them at once as a single unit. ...
-Bottom-Up Method. 
-Hybrid Testing Method. 
+Bottom-Up Method.
+Hybrid Testing Method.
 Incremental Approach.
 Stubs and Drivers.
 Top-Down Approach.
@@ -214,4 +217,3 @@ describe('cleanNumbers()', () => {
   });
 });
 ```
-
