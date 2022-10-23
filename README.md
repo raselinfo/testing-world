@@ -167,6 +167,24 @@ it("should throw an error if provided multiple argument instead of an array", ()
 6. keep your number of assertions (expects) low
 
 ## Integration Test
+Integration testing is the phase in software testing in which individual software modules are combined and tested as a group. Integration testing is conducted to evaluate the compliance of a system or component with specified functional requirements. It occurs after unit testing and before system testing.
+
+Integration testing -- also known as integration and testing (I&T) -- is a type of software testing in which the different units, modules or components of a software application are tested as a combined entity. However, these modules may be coded by different programmers.
+
+This type of testing follows the natural control flow hierarchy, i.e., top to bottom. For example, you have a fitness app with four modules – A login page, a profile page, a workout page, and a payment page. The testing of the application will start from the crucial top-level module.
+
+**What are the 4 types of integration testing?**
+Types of Integration Testing
+Big Bang Method. This method involves integrating all the modules and components and testing them at once as a single unit. ...
+Bottom-Up Method. 
+Hybrid Testing Method. 
+Incremental Approach.
+Stubs and Drivers.
+Top-Down Approach.
+
+**What is main purpose of integration testing?**
+The purpose of integration testing is to expose faults in the interaction between integrated units. Once all the modules have been unit tested, integration testing is performed.
+
 ```js
 // ✅ This is the function should test
 export function cleanNumbers(numberValues) {
