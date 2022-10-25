@@ -148,7 +148,7 @@ it('should throw an error if provided multiple argument instead of an array', ()
 });
 ```
 
-## Test Case
+## Expect
 
 - toBeTypeOf
 - toBe() // <exact equality> ✅ 1===1 (true) , {} === {} (false), [] === [] (false)
@@ -157,6 +157,7 @@ it('should throw an error if provided multiple argument instead of an array', ()
 - toThrow
 - toContain
 - toBeDefined()
+- toHaveProperty()
 
 ## Good Test
 
@@ -251,4 +252,18 @@ describe('generateToken()', () => {
     expect(token).toBe(2);
   });
 });
+```
+
+## Hooks
+
+- beforeAll()
+- beforeEach()
+- afterAll()
+- afterEach()
+
+## Concurrent (একই সঙ্গে সংঘটিত)
+
+```js
+describe.concurrent();
+it.concurrent();
 ```
