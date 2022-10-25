@@ -1,19 +1,19 @@
 {
-  "name": "basic-testing-nodejs",
+  "name": "testing-course",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
     "test": "vitest"
   },
   "keywords": [],
-  "author": "Maximilian Schwarzmüller",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.3"
+    "jsonwebtoken": "^8.5.1"
   },
   "devDependencies": {
-    "vitest": "^0.9.0"
+    "vitest": "^0.9.2"
   }
 }
